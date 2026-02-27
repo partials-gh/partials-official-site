@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="styles.css">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
@@ -18,7 +18,12 @@
   <!-- Top Bar -->
   <div class="topbar">
     <div class="menu-btn" onclick="toggleNav()">☰</div>
-    <div class="title">Partials • v1.2 • est. 2026</div>
+
+    <div class="title">
+      <img src="images/icon.png" class="logo" alt="Logo">
+      <span class="divider">|</span>
+      <span>Partials • v1.2 • est. 2026</span>
+    </div>
   </div>
 
   <!-- Main Layout -->
@@ -38,7 +43,7 @@
       <div class="workspace-header">
         <div class="left-label">HTML Previewer</div>
 
-        <!-- Switch (no text) -->
+        <!-- Toggle Switch -->
         <div class="switch" onclick="toggleView()">
           <div class="slider"></div>
         </div>
@@ -46,15 +51,12 @@
 
       <!-- Editor + Preview -->
       <div class="content">
-        
         <textarea class="editor" id="editor">
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
+<h1>Welcome</h1>
+<p>Start building something.</p>
         </textarea>
 
         <iframe class="preview" id="preview"></iframe>
-
       </div>
 
     </div>
