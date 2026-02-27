@@ -7,6 +7,7 @@ const switchBtn = document.querySelector(".switch");
 // Toggle Sidebar
 function toggleNav() {
   sidebar.classList.toggle("closed");
+  sidebar.style.transition = "0.3s ease";
 }
 
 // Toggle Editor / Preview View
@@ -14,24 +15,18 @@ function toggleView() {
   switchBtn.classList.toggle("active");
 
   if (switchBtn.classList.contains("active")) {
-    // Show preview only
-    editor.style.display = "none";
-    preview.style.flex = "1";
+    editor.classList.add("hidden");
+    preview.classList.remove("hidden");
   } else {
-    // Show both
-    editor.style.display = "block";
-    preview.style.flex = "1";
+    editor.classList.remove("hidden");
   }
 }
 
 // Live HTML Preview
 function updatePreview() {
-  const content = editor.value;
-  preview.srcdoc = content;
+  preview.srcdoc = editor.value;
 }
 
-// Update preview on input
 editor.addEventListener("input", updatePreview);
-
-// Initial render
 updatePreview();
+
