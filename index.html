@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Partials | HTML Previewer</title>
 
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/icon.png">
-  <link rel="shortcut icon" href="images/icon.png">
 </head>
 
 <body>
 
   <!-- Top Bar -->
-  <div class="topbar">
+  <div class="topbar glow-hover">
     <div class="menu-btn" onclick="toggleNav()">☰</div>
 
     <div class="title">
@@ -30,31 +26,31 @@
   <div class="main">
 
     <!-- Sidebar -->
-    <div id="sidebar" class="sidebar">
+    <div id="sidebar" class="sidebar glow-hover">
 
-      <a href="https://example.com" target="_blank" class="nav-item">About</a>
+      <a href="#" class="nav-item glow-hover">About</a>
 
       <div class="dropdown">
-        <div class="nav-item dropbtn">Tools ▾</div>
+        <div class="nav-item dropbtn glow-hover">Tools ▾</div>
         <div class="dropdown-content">
-          <a href="https://example.com" target="_blank">Calculator</a>
-          <a href="https://example.com" target="_blank">Partials AI</a>
-          <a href="https://example.com" target="_blank">Chat Bubble</a>
+          <a href="#">Calculator</a>
+          <a href="#">Partials AI</a>
+          <a href="#">Chat Bubble</a>
         </div>
       </div>
 
-      <a href="https://example.com" target="_blank" class="nav-item">Games</a>
+      <a href="#" class="nav-item glow-hover">Games</a>
 
       <div class="dropdown">
-        <div class="nav-item dropbtn">Templates ▾</div>
+        <div class="nav-item dropbtn glow-hover">Templates ▾</div>
         <div class="dropdown-content">
-          <a href="https://example.com" target="_blank">AI Template</a>
-          <a href="https://example.com" target="_blank">Calculator Template</a>
-          <a href="https://example.com" target="_blank">Portfolio Template</a>
+          <a href="#">AI Template</a>
+          <a href="#">Calculator Template</a>
+          <a href="#">Portfolio Template</a>
         </div>
       </div>
 
-      <a href="https://example.com" target="_blank" class="nav-item">Portfolio</a>
+      <a href="#" class="nav-item glow-hover">Portfolio</a>
 
       <a href="https://github.com/partials-gh" target="_blank" class="github-link">
         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="github-icon" alt="GitHub">
@@ -63,19 +59,16 @@
     </div>
 
     <!-- Workspace -->
-    <div class="workspace">
+    <div class="workspace glow-hover">
 
-      <!-- Workspace Header -->
       <div class="workspace-header">
         <div class="left-label">HTML Previewer</div>
 
-        <!-- Toggle Switch -->
         <div class="switch" onclick="toggleView()">
           <div class="slider"></div>
         </div>
       </div>
 
-      <!-- Editor + Preview -->
       <div class="content">
         <textarea class="editor" id="editor">
 <h1>Welcome</h1>
@@ -88,7 +81,6 @@
     </div>
   </div>
 
-  <!-- Script -->
   <script src="script.js"></script>
 
 </body>
