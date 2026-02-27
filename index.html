@@ -1,88 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partials | HTML Previewer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partials • HTML Previewer</title>
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="images/icon.png" />
 </head>
-
 <body>
+  <!-- App Shell -->
+  <div class="app-shell">
 
-  <!-- Top Bar -->
-  <div class="topbar glow-hover">
-    <div class="menu-btn" onclick="toggleNav()">☰</div>
+    <!-- Top Bar -->
+    <header class="topbar">
+      <button class="icon-button" type="button" onclick="toggleNav()">
+        ☰
+      </button>
 
-    <div class="title">
-      <img src="images/icon.png" class="logo" alt="Logo">
-      <span class="divider">|</span>
-      <span>Partials • v1.2 • est. 2026</span>
-    </div>
-  </div>
-
-  <!-- Main Layout -->
-  <div class="main">
-
-    <!-- Sidebar -->
-    <div id="sidebar" class="sidebar glow-hover">
-
-      <a href="#" class="nav-item glow-hover">About</a>
-
-      <div class="dropdown">
-        <div class="nav-item dropbtn glow-hover">Tools ▾</div>
-        <div class="dropdown-content">
-          <a href="#">Calculator</a>
-          <a href="#">Partials AI</a>
-          <a href="#">Chat Bubble</a>
-        </div>
+      <div class="title">
+        <img src="images/icon.png" class="logo" alt="Logo" />
+        <span class="title-text">Partials • HTML Previewer</span>
+        <span class="title-meta">v1.2 • est. 2026</span>
       </div>
+    </header>
 
-      <a href="#" class="nav-item glow-hover">Games</a>
+    <!-- Main Layout -->
+    <main class="main">
 
-      <div class="dropdown">
-        <div class="nav-item dropbtn glow-hover">Templates ▾</div>
-        <div class="dropdown-content">
-          <a href="#">AI Template</a>
-          <a href="#">Calculator Template</a>
-          <a href="#">Portfolio Template</a>
-        </div>
-      </div>
+      <!-- Sidebar -->
+      <aside id="sidebar" class="sidebar">
+        <nav class="nav">
 
-      <a href="#" class="nav-item glow-hover">Portfolio</a>
+          <a href="#" class="nav-item">About</a>
 
-      <a href="https://github.com/partials-gh" target="_blank" class="github-link">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" class="github-icon" alt="GitHub">
-      </a>
+          <div class="nav-group">
+            <button class="nav-item nav-item--dropdown" type="button">
+              <span>Tools</span>
+              <span class="caret">▾</span>
+            </button>
+            <div class="dropdown">
+              <a href="#" class="dropdown-item">Calculator</a>
+              <a href="#" class="dropdown-item">Partials AI</a>
+              <a href="#" class="dropdown-item">Chat Bubble</a>
+            </div>
+          </div>
 
-    </div>
+          <a href="#" class="nav-item">Games</a>
 
-    <!-- Workspace -->
-    <div class="workspace glow-hover">
+          <div class="nav-group">
+            <button class="nav-item nav-item--dropdown" type="button">
+              <span>Templates</span>
+              <span class="caret">▾</span>
+            </button>
+            <div class="dropdown">
+              <a href="#" class="dropdown-item">AI Template</a>
+              <a href="#" class="dropdown-item">Calculator Template</a>
+              <a href="#" class="dropdown-item">Portfolio Template</a>
+            </div>
+          </div>
 
-      <div class="workspace-header">
-        <div class="left-label">HTML Previewer</div>
+          <a href="#" class="nav-item">Portfolio</a>
+        </nav>
 
-        <div class="switch" onclick="toggleView()">
-          <div class="slider"></div>
-        </div>
-      </div>
+        <a href="https://github.com/partials-gh" target="_blank" class="github-link">
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+            class="github-icon"
+            alt="GitHub"
+          />
+        </a>
+      </aside>
 
-      <div class="content">
-        <textarea class="editor" id="editor">
+      <!-- Workspace -->
+      <section class="workspace">
+        <header class="workspace-header">
+          <div class="workspace-title">
+            <span class="pill">Live</span>
+            <span class="workspace-label">HTML Previewer</span>
+          </div>
+
+          <button class="toggle" type="button" onclick="toggleView()">
+            <span class="toggle-label">Split</span>
+            <div class="toggle-track">
+              <div class="toggle-thumb"></div>
+            </div>
+            <span class="toggle-label">Preview</span>
+          </button>
+        </header>
+
+        <div class="content">
+          <textarea class="editor" id="editor">
 <h1>Welcome</h1>
 <p>Start building something.</p>
-        </textarea>
+          </textarea>
 
-        <iframe class="preview" id="preview"></iframe>
-      </div>
+          <iframe class="preview" id="preview"></iframe>
+        </div>
+      </section>
 
-    </div>
+    </main>
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
-
