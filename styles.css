@@ -14,35 +14,67 @@ body {
   color: #fff;
 }
 
-/* GLOBAL SHADOW */
+/* SUBTLE ANIMATED GRID BACKGROUND */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 40px 40px, 40px 40px; }
+}
+
+/* GLOBAL VARIABLES */
 :root {
-  --glass-shadow:
-    0 0 25px rgba(255, 255, 255, 0.04),
-    0 0 60px rgba(255, 255, 255, 0.02);
+  --radius: 14px;
+  --speed: 0.25s;
+  --shadow:
+    0 0 25px rgba(255,255,255,0.04),
+    0 0 60px rgba(255,255,255,0.02);
+}
+
+/* UNIVERSAL APP-LIKE FEEL */
+* {
+  border-radius: var(--radius);
+  transition: background var(--speed), box-shadow var(--speed), transform var(--speed), opacity var(--speed);
+}
+
+/* HOVER GLOW */
+.glow-hover:hover {
+  box-shadow:
+    0 0 12px rgba(255,255,255,0.06),
+    0 0 25px rgba(255,255,255,0.03);
+  transform: translateY(-1px);
 }
 
 /* TOP BAR */
 .topbar {
   height: 60px;
   background: #161616;
-  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 18px;
   margin-bottom: 20px;
-  box-shadow: var(--glass-shadow);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
 }
 
 .menu-btn {
   cursor: pointer;
   font-size: 22px;
   opacity: 0.8;
-  transition: 0.2s;
 }
-.menu-btn:hover {
-  opacity: 1;
-}
+.menu-btn:hover { opacity: 1; }
 
 .title {
   display: flex;
@@ -58,9 +90,7 @@ body {
   opacity: 0.9;
 }
 
-.divider {
-  opacity: 0.4;
-}
+.divider { opacity: 0.4; }
 
 /* MAIN LAYOUT */
 .main {
@@ -73,13 +103,13 @@ body {
 .sidebar {
   width: 240px;
   background: #161616;
-  border-radius: 14px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
   transition: 0.3s ease;
-  box-shadow: var(--glass-shadow);
 }
 
 .sidebar.closed {
@@ -88,47 +118,42 @@ body {
   overflow: hidden;
 }
 
+/* NAV ITEMS */
 .nav-item {
   color: #ddd;
   text-decoration: none;
   padding: 10px 12px;
-  border-radius: 10px;
   background: #1f1f1f;
-  transition: 0.2s;
   font-size: 14px;
 }
-.nav-item:hover {
-  background: #262626;
-}
+.nav-item:hover { background: #262626; }
 
 /* DROPDOWN */
-.dropdown {
-  position: relative;
-}
+.dropdown { position: relative; }
 
 .dropbtn {
   background: #1f1f1f;
   padding: 10px 12px;
-  border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s;
-}
-.dropbtn:hover {
-  background: #262626;
 }
 
 .dropdown-content {
-  display: none;
+  display: flex;
   flex-direction: column;
-  background: #1f1f1f;
-  border-radius: 10px;
-  margin-top: 6px;
-  padding: 8px;
   gap: 6px;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: 0.25s ease;
 }
 
 .dropdown:hover .dropdown-content {
-  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown-content a {
@@ -136,42 +161,35 @@ body {
   text-decoration: none;
   padding: 8px;
   border-radius: 8px;
-  transition: 0.2s;
   font-size: 13px;
 }
-.dropdown-content a:hover {
-  background: #2a2a2a;
-}
+.dropdown-content a:hover { background: #2a2a2a; }
 
 /* GITHUB ICON */
 .github-link {
   margin-top: auto;
   display: flex;
   justify-content: center;
-  padding-top: 10px;
 }
 
 .github-icon {
   width: 26px;
   opacity: 0.7;
-  transition: 0.2s;
 }
-.github-icon:hover {
-  opacity: 1;
-}
+.github-icon:hover { opacity: 1; }
 
 /* WORKSPACE */
 .workspace {
   flex: 1;
   background: #161616;
-  border-radius: 14px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  box-shadow: var(--glass-shadow);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
 }
 
-/* WORKSPACE HEADER */
+/* HEADER */
 .workspace-header {
   height: 50px;
   display: flex;
@@ -190,28 +208,22 @@ body {
   width: 50px;
   height: 24px;
   background: #2a2a2a;
-  border-radius: 50px;
   position: relative;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .slider {
   width: 20px;
   height: 20px;
   background: #fff;
-  border-radius: 50%;
   position: absolute;
   top: 2px;
   left: 2px;
-  transition: 0.3s;
 }
 
-.switch.active .slider {
-  left: 28px;
-}
+.switch.active .slider { left: 28px; }
 
-/* EDITOR + PREVIEW */
+/* CONTENT */
 .content {
   flex: 1;
   display: flex;
@@ -222,7 +234,6 @@ body {
   flex: 1;
   background: #0f0f0f;
   border: none;
-  border-radius: 14px;
   padding: 15px;
   color: #fff;
   resize: none;
@@ -234,11 +245,13 @@ body {
 .preview {
   flex: 1;
   background: #fff;
-  border-radius: 14px;
   border: none;
 }
 
-/* FULL MODE */
+/* TOGGLE ANIMATION */
+.editor.hidden,
 .preview.hidden {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
 }
