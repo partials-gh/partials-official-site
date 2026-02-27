@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Previewer</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="shortcut icon" href="images/favicon.png">
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="menu-btn" onclick="toggleNav()">☰</div>
+    <div class="title">Partials • v1.2 • est. 2026</div>
+  </div>
+
+  <!-- Main Layout -->
+  <div class="main">
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+      <button>New File</button>
+      <button>Save</button>
+      <button>Settings</button>
+    </div>
+
+    <!-- Workspace -->
+    <div class="workspace">
+
+      <!-- Workspace Header -->
+      <div class="workspace-header">
+        <div class="left-label">HTML Previewer</div>
+
+        <!-- Switch (no text) -->
+        <div class="switch" onclick="toggleView()">
+          <div class="slider"></div>
+        </div>
+      </div>
+
+      <!-- Editor + Preview -->
+      <div class="content">
+        
+        <textarea class="editor" id="editor">
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
+        </textarea>
+
+        <iframe class="preview" id="preview"></iframe>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
