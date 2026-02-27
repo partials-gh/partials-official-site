@@ -1,69 +1,85 @@
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: #111;
+  background: #0d0d0d;
   height: 100vh;
   overflow: hidden;
   padding: 20px;
+  color: #fff;
 }
 
-/* Top Floating Bar */
+/* GLOBAL SHADOW */
+:root {
+  --glass-shadow:
+    0 0 25px rgba(255, 255, 255, 0.04),
+    0 0 60px rgba(255, 255, 255, 0.02);
+}
 
+/* TOP BAR */
 .topbar {
   height: 60px;
-  background: #1a1a1a;
-  border-radius: 15px;
+  background: #161616;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  color: #fff;
+  padding: 0 18px;
   margin-bottom: 20px;
-
-  box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.05),
-    0 0 40px rgba(255, 255, 255, 0.03);
+  box-shadow: var(--glass-shadow);
 }
 
 .menu-btn {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 22px;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+.menu-btn:hover {
+  opacity: 1;
 }
 
 .title {
-  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.75;
   font-size: 14px;
 }
 
-/* Main Layout */
+.logo {
+  width: 22px;
+  height: 22px;
+  opacity: 0.9;
+}
 
+.divider {
+  opacity: 0.4;
+}
+
+/* MAIN LAYOUT */
 .main {
   display: flex;
   height: calc(100vh - 100px);
   gap: 20px;
 }
 
-/* Sidebar */
-
+/* SIDEBAR */
 .sidebar {
-  width: 250px;
-  background: #1a1a1a;
-  border-radius: 15px;
+  width: 240px;
+  background: #161616;
+  border-radius: 14px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: all 0.3s ease;
-
-  box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.05),
-    0 0 40px rgba(255, 255, 255, 0.03);
+  gap: 12px;
+  transition: 0.3s ease;
+  box-shadow: var(--glass-shadow);
 }
 
 .sidebar.closed {
@@ -72,33 +88,90 @@ body {
   overflow: hidden;
 }
 
-.sidebar button {
-  background: #2a2a2a;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 15px;
-  cursor: pointer;
+.nav-item {
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #1f1f1f;
+  transition: 0.2s;
+  font-size: 14px;
+}
+.nav-item:hover {
+  background: #262626;
 }
 
-/* Workspace */
+/* DROPDOWN */
+.dropdown {
+  position: relative;
+}
 
+.dropbtn {
+  background: #1f1f1f;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.dropbtn:hover {
+  background: #262626;
+}
+
+.dropdown-content {
+  display: none;
+  flex-direction: column;
+  background: #1f1f1f;
+  border-radius: 10px;
+  margin-top: 6px;
+  padding: 8px;
+  gap: 6px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown-content a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-size: 13px;
+}
+.dropdown-content a:hover {
+  background: #2a2a2a;
+}
+
+/* GITHUB ICON */
+.github-link {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.github-icon {
+  width: 26px;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+.github-icon:hover {
+  opacity: 1;
+}
+
+/* WORKSPACE */
 .workspace {
   flex: 1;
-  background: #1a1a1a;
-  border-radius: 15px;
+  background: #161616;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  transition: all 0.3s ease;
-
-  box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.05),
-    0 0 40px rgba(255, 255, 255, 0.03);
+  box-shadow: var(--glass-shadow);
 }
 
-/* Workspace Header */
-
+/* WORKSPACE HEADER */
 .workspace-header {
   height: 50px;
   display: flex;
@@ -108,18 +181,15 @@ body {
 }
 
 .left-label {
-  color: white;
   font-size: 16px;
-  font-weight: 500;
   opacity: 0.8;
 }
 
-/* Switch Container */
-
+/* SWITCH */
 .switch {
   width: 50px;
   height: 24px;
-  background: #333;
+  background: #2a2a2a;
   border-radius: 50px;
   position: relative;
   cursor: pointer;
@@ -141,39 +211,34 @@ body {
   left: 28px;
 }
 
-/* Editor + Preview */
-
+/* EDITOR + PREVIEW */
 .content {
   flex: 1;
   display: flex;
   gap: 15px;
-  height: 100%;
 }
 
 .editor {
   flex: 1;
-  background: #111;
+  background: #0f0f0f;
   border: none;
-  border-radius: 15px;
+  border-radius: 14px;
   padding: 15px;
-  color: white;
+  color: #fff;
   resize: none;
   outline: none;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .preview {
   flex: 1;
-  background: white;
-  border-radius: 15px;
+  background: #fff;
+  border-radius: 14px;
   border: none;
 }
 
-/* Full Mode States */
-
-.editor.full {
-  flex: 1;
-}
-
+/* FULL MODE */
 .preview.hidden {
   display: none;
 }
