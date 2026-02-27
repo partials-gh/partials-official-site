@@ -1,0 +1,179 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #111;
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Top Floating Bar */
+
+.topbar {
+  height: 60px;
+  background: #1a1a1a;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: #fff;
+  margin-bottom: 20px;
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.05),
+    0 0 40px rgba(255, 255, 255, 0.03);
+}
+
+.menu-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.title {
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* Main Layout */
+
+.main {
+  display: flex;
+  height: calc(100vh - 100px);
+  gap: 20px;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 250px;
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.05),
+    0 0 40px rgba(255, 255, 255, 0.03);
+}
+
+.sidebar.closed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar button {
+  background: #2a2a2a;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+/* Workspace */
+
+.workspace {
+  flex: 1;
+  background: #1a1a1a;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: all 0.3s ease;
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.05),
+    0 0 40px rgba(255, 255, 255, 0.03);
+}
+
+/* Workspace Header */
+
+.workspace-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.left-label {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Switch Container */
+
+.switch {
+  width: 50px;
+  height: 24px;
+  background: #333;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: 0.3s;
+}
+
+.switch.active .slider {
+  left: 28px;
+}
+
+/* Editor + Preview */
+
+.content {
+  flex: 1;
+  display: flex;
+  gap: 15px;
+  height: 100%;
+}
+
+.editor {
+  flex: 1;
+  background: #111;
+  border: none;
+  border-radius: 15px;
+  padding: 15px;
+  color: white;
+  resize: none;
+  outline: none;
+}
+
+.preview {
+  flex: 1;
+  background: white;
+  border-radius: 15px;
+  border: none;
+}
+
+/* Full Mode States */
+
+.editor.full {
+  flex: 1;
+}
+
+.preview.hidden {
+  display: none;
+}
